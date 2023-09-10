@@ -1,0 +1,1 @@
+export const arrowDownIcon = 'arrowDown'

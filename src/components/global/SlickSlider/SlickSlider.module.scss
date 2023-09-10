@@ -1,0 +1,52 @@
+@import "../../../styles/vars";
+@import "../../../styles/mixins";
+
+
+.slider {
+  display: block;
+
+  &_smDistance {
+    @include setDistance(padding-top, 60)
+  }
+  &_lgDistance {
+    @include setDistance(padding-top, 70)
+  }
+
+  :global(.slick-dots) {
+    position: static;
+    margin-top: 20px;
+
+    @include smScreenMedia {
+      margin-top: 6px;
+    }
+  }
+
+  :global(.slick-list),:global(.slick-track) {
+    display: flex;
+  }
+  :global(.slick-slide>div) {
+    height: 100%;
+  }
+
+  &__container {
+    margin: 0 -10px;
+  }
+
+  &__wrapper {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+
+    @include mdScreenMedia {
+      grid-template-columns: repeat(2,1fr);
+    }
+
+    @include smScreenMedia {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  &__item {
+    padding: 0 10px;
+    height: 100%;
+  }
+}

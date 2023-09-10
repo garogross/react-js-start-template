@@ -1,0 +1,145 @@
+@import "../../../../styles/vars";
+@import "../../../../styles/mixins";
+
+.sliderItem {
+  width: 100%;
+  height: 100%;
+
+  &__imgLink {
+    outline: none;
+  }
+
+  &__img {
+    width: 100%;
+    height: 352px;
+    object-fit: cover;
+    animation: displaying .5s linear 1;
+
+    @include xxlScreenMedia {
+      height: 282px;
+    }
+
+    @include xlScreenMedia {
+      height: 240px;
+    }
+
+    @include lgScreenMedia {
+      height: 194px;
+    }
+
+    @include mdScreenMedia {
+      height: 230px;
+    }
+
+    @include smScreenMedia {
+      height: 350px;
+    }
+
+    @media (max-width: 380px) {
+      height: 220px;
+    }
+  }
+
+  &__textBlock {
+    padding: 20px 20px 37px;
+    color: $color-white;
+    @include flexCol(space-between, normal);
+    flex-direction: column;
+    height: calc(100% - 352px);
+
+    @include xxlScreenMedia {
+      height: calc(100% - 282px);
+      padding: 20px 20px 23px 18px;
+    }
+
+    @include xlScreenMedia {
+      height: calc(100% - 240px);
+      padding: 20px 10px 20px 15px;
+    }
+
+    @include lgScreenMedia {
+      height: calc(100% - 194px);
+      padding: 17px 12px 29px 13px;
+    }
+
+    @include mdScreenMedia {
+      height: calc(100% - 230px);
+    }
+
+    @include smScreenMedia {
+      height: calc(100% - 350px);
+      padding: 17px 7px;
+    }
+    @media (max-width: 380px) {
+      height: calc(100% - 220px)
+    }
+  }
+
+  &__title {
+    @include setFont(30px, 500);
+    margin-bottom: 40px;
+
+    @include xxlScreenMedia {
+      font-size: 26px;
+      margin-bottom: 30px;
+    }
+
+    @include xlScreenMedia {
+      font-size: 24px;
+    }
+
+    @include lgScreenMedia {
+      font-size: 20px;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__contentText {
+    margin-bottom: 36px;
+
+    @include xxlScreenMedia {
+      margin-bottom: 28px;
+    }
+
+    @include xlScreenMedia {
+      margin-bottom: 34px;
+    }
+
+    @include lgScreenMedia {
+      margin-bottom: 21px;
+    }
+  }
+
+  &__footBlock {
+    @include flexCol(space-between);
+    @include setFont(20px, 400);
+
+    @include xxlScreenMedia {
+      font-size: 18px;
+    }
+
+    @include xlScreenMedia {
+      font-size: 16px;
+    }
+
+    @include xlScreenMedia {
+      font-size: 14px;
+    }
+  }
+
+  &__readMoreLink {
+    transition: $transition;
+    color: $color-white;
+    text-underline-offset: 2px;
+
+    &:hover {
+      color: $color-light-blue;
+    }
+  }
+}
+
+
+@keyframes displaying {
+  from{opacity: 0}
+  to{opacity: 1}
+}

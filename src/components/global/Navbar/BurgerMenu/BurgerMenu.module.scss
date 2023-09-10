@@ -1,0 +1,114 @@
+@import "../../../../styles/vars";
+@import "../../../../styles/mixins";
+
+
+.burgerMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  max-width: 505px;
+  padding: 55px 30px ;
+  background: $color-black;
+  @include flexCol(flex-start, stretch);
+  flex-direction: column;
+  gap: 40px;
+  z-index: 9999;
+  height: 100vh;
+
+  @include smScreenMedia {
+    max-width: none;
+    gap: 30px;
+    padding: 34px 15px;
+  }
+
+  &__closeBtn {
+    position: absolute;
+    top: 30px;
+    right: 43px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    @include smScreenMedia {
+      top: 16px;
+      right: 18px;
+    }
+  }
+
+  &__closeBtnIcon {
+    @include svg(26px, $color-light-blue);
+
+    @include smScreenMedia {
+      width: 18px;
+    }
+  }
+
+  &__link {
+    display: block;
+    color: $color-white;
+    text-decoration: none;
+    @include setFont(28px, 500);
+    transition: $transition;
+    cursor: pointer;
+
+    @include smScreenMedia {
+      font-size: 20px;
+    }
+
+    &:hover, &_active {
+      color: $color-light-blue;
+    }
+  }
+
+  &__link:hover &__linkIcon {
+    fill: $color-light-blue;
+  }
+
+  &__linkText {
+    margin-right: 10px;
+  }
+
+  &__linkIcon {
+    @include svg(14px, $color-white, 8px);
+
+    @include smScreenMedia {
+      width: 11px;
+    }
+
+    &_active {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__dropDownContent {
+    @include flexCol(flex-start, flex-start);
+    flex-direction: column;
+    gap: 24px;
+    overflow: hidden;
+
+    @include smScreenMedia {
+      gap: 17px;
+    }
+  }
+
+  &__dropDownLink {
+    @include setFont(26px, 300);
+    color: $color-white;
+    text-decoration: none;
+    transition: $transition;
+
+    @include smScreenMedia {
+      font-size: 18px;
+    }
+
+    &:hover, &_active {
+      color: $color-light-blue;
+    }
+
+    &:first-child {
+      margin-top: 25px;
+    }
+  }
+
+}

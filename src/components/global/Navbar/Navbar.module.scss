@@ -1,0 +1,109 @@
+@import "../../../styles/vars";
+@import "../../../styles/mixins";
+
+
+.navbar {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 24px 0;
+  transition: $transition;
+  z-index: 9999;
+
+  &_active {
+    background: $color-black;
+  }
+
+  @include hover {
+    &:hover {
+      background: $color-black;
+    }
+    &:hover &__logoImg {
+      fill: $color-white;
+    }
+
+    &:hover &__menuLink {
+      color: $color-white;
+    }
+  }
+
+
+  &_active &__logoImg {
+    fill: $color-white;
+  }
+
+  &_active &__menuLink {
+    color: $color-white;
+  }
+
+  &_disabled {
+    z-index: 99;
+  }
+
+  &__container {
+    @include flexCol(space-between);
+  }
+
+
+  &__menu {
+    max-width: 1154px;
+    width: 100%;
+    @include flexCol(space-between);
+    margin: 0 auto;
+
+    @include xxlScreenMedia {
+      max-width: 954px;
+    }
+
+    @include xlScreenMedia {
+      max-width: 751px;
+    }
+
+    @include lgScreenMedia {
+      display: none;
+    }
+  }
+
+  &__menuLink {
+    @include setFont(20px, 500);
+    color: $color-white;
+    text-decoration: none;
+    transition: $transition;
+    cursor: pointer;
+
+    @include xxlScreenMedia {
+      font-size: 18px;
+    }
+
+    @include xlScreenMedia {
+      font-size: 16px;
+    }
+
+    &:hover,
+    &_active {
+      color: $color-light-blue !important;
+    }
+
+    &_white {
+      color: $color-black;
+    }
+  }
+
+  &__menuLink:hover &__menuLinkIcon,
+  &__menuLink_active &__menuLinkIcon {
+    fill: $color-light-blue;
+  }
+
+  &__menuLinkText {
+    margin-right: 6px;
+  }
+
+  &__menuLinkIcon {
+    @include svg(17px, $color-white, 10px);
+
+    &_active {
+      transform: rotate(180deg);
+    }
+  }
+}
